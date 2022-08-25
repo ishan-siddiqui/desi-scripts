@@ -1,13 +1,15 @@
 #!/bin/sh
 sudo yum update -y
 
-sudo yum install java-1.8.0
-sudo yum remove java-1.7.0-openjdk
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
-sudo rpm — import https://pkg.jenkins.io/redhat/jenkins.io.key
+sudo yum  -y
 
-sudo yum install jenkins -y
+sudo yum install jenkins
 
-sudo service jenkins start
+sudo systemctl start jenkins
+
+sudo systemctl status jenkins
+
