@@ -1,17 +1,18 @@
 #!/bin/sh
 
-gradle_version=”4.4-rc-5″
+gradle_version=”7.5.1″
 
 #Your Custom Installation Path
 
 install_target_path=”/opt/gradle”
-sudo wget -N https://services.gradle.org/distributions/gradle-${gradle_version}-all.zip
-sudo mkdir -p ${install_target_path}
+sudo wget -N https://services.gradle.org/distributions/gradle-${gradle_version}-bin.zip
+sudo mkdir ${install_target_path}
+ls /opt/gradle
 sudo unzip gradle-${gradle_version}-all.zip
-sudo mv gradle-${gradle_version} ${install_target_path}/
-sudo ln -sfn gradle-${gradle_version} ${install_target_path}/latest
+ls /opt/gradle/gradle-7.5.1
+
 sudo chown -R ec2-user:ec2-user ${install_target_path}
-sudo printf “export GRADLE_HOME=${install_target_path}/latest\nexport PATH=\$PATH:\$GRADLE_HOME/bin” > /etc/profile.d/gradle.sh
-. /etc/profile.d/gradle.sh
+export PATH=$PATH:/opt/gradle/gradle-7.5.1/bin
+
 # check installation
 gradle -v
