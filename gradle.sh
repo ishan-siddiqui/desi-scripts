@@ -6,6 +6,7 @@ gradle_version=”7.5.1″
 
 install_target_path=”/opt/gradle”
 sudo mkdir /opt/gradle
+cd /opt/gradle
 sudo wget -N https://services.gradle.org/distributions/gradle-${gradle_version}-bin.zip
 # ls /opt/gradle
 # sudo unzip gradle-${gradle_version}-all.zip
