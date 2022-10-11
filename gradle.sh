@@ -1,9 +1,7 @@
-### I assume you run the commands as root
-gradle_version=2.6
-wget -c http://services.gradle.org/distributions/gradle-${gradle_version}-all.zip
-unzip  gradle-${gradle_version}-all.zip -d /opt
-ln -s /opt/gradle-${gradle_version} /opt/gradle
-printf "export GRADLE_HOME=/opt/gradle\nexport PATH=\$PATH:\$GRADLE_HOME/bin\n" > /etc/profile.d/gradle.sh
-source /etc/profile.d/gradle.sh
+#!/bin/sh
+sudo mkdir /opt/gradle
+wget -c https://services.gradle.org/distributions/gradle-7.5.1-bin.zip
+sudo unzip -d /opt/gradle/gradle-7.5.1-bin.zip
+export PATH=$PATH:/opt/gradle/gradle-7.5.1/bin
 # check installation
 gradle -v
