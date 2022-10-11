@@ -15,4 +15,4 @@ ls /opt/gradle
 # export PATH=$PATH:/opt/gradle/gradle-7.5.1/bin
 
 # check installation
-gradle -v
+# gradle -v
