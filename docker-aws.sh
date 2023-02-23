@@ -4,7 +4,7 @@
 sudo yum update -y
 
 # Install the most recent Docker Engine package
-sudo amazon-linux-extras install docker
+sudo amazon-linux-extras install docker -y
 
 # Start Docker Service
 sudo service docker start
